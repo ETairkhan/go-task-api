@@ -2,9 +2,9 @@ package service
 
 import (
 	"fmt"
-	"time"
 	"task/model"
 	"task/storage"
+	"time"
 
 	"github.com/google/uuid"
 )
@@ -33,7 +33,7 @@ func (s *TaskService) runTask(task *model.Task) {
 	task.Status = model.StatusRunning
 	s.storage.Save(task)
 
-	time.Sleep(20 * time.Second) // имитация долгой операции
+	time.Sleep(3 * time.Minute) // имитация долгой операции
 
 	task.Result = fmt.Sprintf("Task %s completed successfully", task.ID)
 	task.Status = model.StatusCompleted
